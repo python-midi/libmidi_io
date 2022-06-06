@@ -1,0 +1,21 @@
+[[package]]
+name = "libmidi"
+version = "1.0.1"
+description = "MIDI library"
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+
+[package.extras]
+docs = ["sphinx (>=5.0.1,<6.0.0)", "sphinx-rtd-theme (>=1.0.0,<2.0.0)"]
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.8"
+content-hash = "d85b94a78bb89f370ed7168ede003dd8d779da5a3cc967e6b4a489ef5ad89650"
+
+[metadata.files]
+libmidi = [
+    {file = "libmidi-1.0.1-py3-none-any.whl", hash = "sha256:3267679e753f0eb8ab843118e64f45403d308cd9136a5e4efe3b194d10cedb1f"},
+    {file = "libmidi-1.0.1.tar.gz", hash = "sha256:aa0ac2f0944cf34a5855cf5bd6e6e94f9a57a76d688a8dc0fe9f4085efc69c4a"},
+]
