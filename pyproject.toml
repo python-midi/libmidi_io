@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "libmidi_io"
-version = "1.0.0"
+version = "1.0.1"
 description = "MIDI I/O utils"
 authors = ["Sebastiano Barezzi <barezzisebastiano@gmail.com>"]
 license = "LGPL-3.0-or-later"
