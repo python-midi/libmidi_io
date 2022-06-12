@@ -234,7 +234,7 @@ class EchoPort(BasePort):
 		return True
 
 	def _receive(self, block: bool):
-		pass
+		return None
 
 	def _send(self, message: BaseMessage):
 		self._messages.append(message)
