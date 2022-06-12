@@ -34,6 +34,8 @@ class BasePort:
 		name is the port name, as returned by output_names(). If
 		name is None, the default output is used instead.
 		Set autoreset to True to reset the port when it is closed.
+		Note: since subclasses will surely use **kwargs to pass BasePort-specific
+		arguments, don't use positional arguments. Always use keyword arguments.
 		"""
 		self.name = name
 		self.autoreset = autoreset
