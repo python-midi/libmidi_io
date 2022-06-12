@@ -20,22 +20,20 @@ class BasePort:
 	"""
 	Base class for MIDI port.
 
-	Subclass and override _open() and _close().
+	Subclass and override __init__() (open your port here) and _close().
 	Override is_input() and _receive() if this port supports input.
 	Override is_output() and _send() if this port supports output.
 	If the port allows multiple access at the same time, set _locking to False.
 	"""
 	_locking: bool = True
 
-	def __init__(self, name: str = None, autoreset: bool = False, **kwargs):
+	def __init__(self, name: str = None, autoreset: bool = False):
 		"""
-		Create an output port
+		Create and open a MIDI port
 
 		name is the port name, as returned by output_names(). If
 		name is None, the default output is used instead.
 		Set autoreset to True to reset the port when it is closed.
-		You can pass additional arguments to the backend-specific
-		_open() method with kwargs.
 		"""
 		self.name = name
 		self.autoreset = autoreset
@@ -45,28 +43,7 @@ class BasePort:
 		# Input
 		self._messages = deque()
 
-		self.closed = True
-		self._open(**kwargs)
 		self.closed = False
-
-	def is_input(self) -> bool:
-		"""Return True if this is an input port."""
-		raise NotImplementedError
-
-	def is_output(self) -> bool:
-		"""Return True if this is an output port."""
-		raise NotImplementedError
-
-	def _open(self, **kwargs) -> None:
-		"""
-		Backend-specific open() implementation.
-
-		This method is called by __init__() and should not be called
-		directly.
-		If your backend doesn't need any special initialization,
-		override _open() and do nothing.
-		"""
-		raise NotImplementedError
 
 	def _close(self) -> None:
 		"""
@@ -77,6 +54,14 @@ class BasePort:
 		If your backend doesn't need any special cleanup,
 		override _close() and do nothing.
 		"""
+		raise NotImplementedError
+
+	def is_input(self) -> bool:
+		"""Return True if this is an input port."""
+		raise NotImplementedError
+
+	def is_output(self) -> bool:
+		"""Return True if this is an output port."""
 		raise NotImplementedError
 
 	def _receive(self, block: bool) -> BaseMessage:
