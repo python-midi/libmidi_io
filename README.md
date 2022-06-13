@@ -1,6 +1,7 @@
 # libmidi_io
 
 [![PyPi version](https://img.shields.io/pypi/v/libmidi_io)](https://pypi.org/project/libmidi_io/)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/0b05a5eb9b8443749b2d2c0a87bc9099)](https://www.codacy.com/gh/python-midi/libmidi_io/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=python-midi/libmidi_io&amp;utm_campaign=Badge_Grade)
 
 MIDI I/O utils.
 
