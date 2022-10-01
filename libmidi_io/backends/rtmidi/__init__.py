@@ -6,7 +6,6 @@
 """MIDI I/O RtMidi backend."""
 
 from libmidi.types.messages.common import BaseMessage
-from mido.backends import rtmidi
 import rtmidi
 
 from libmidi_io.types.device import Device
