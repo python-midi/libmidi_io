@@ -5,15 +5,25 @@
 #
 """MIDI I/O ALSA MIDI backend."""
 
-from alsa_midi import MidiBytesEvent, PortCaps, PortType, SequencerClient
-from alsa_midi.mido_backend import _find_port
+from alsa_midi import MidiBytesEvent, PortCaps, PortInfo, PortType, SequencerClient
 from libmidi.types.message import message_from_bytes
 from libmidi.types.messages.common import BaseMessage
 from threading import Thread
+from typing import List
 from weakref import WeakValueDictionary
 
 from libmidi_io.types.device import Device
 from libmidi_io.types.port import BasePort
+
+def _find_port(ports: List[PortInfo], name: str) -> PortInfo:
+	for port in ports:
+		libmidi_name = f"{port.client_name}:{port.name} {port.client_id}:{port.port_id}"
+		if name != libmidi_name:
+			continue
+
+		return port
+
+	raise IOError(f"Unknown port {name}")
 
 class _Client:
 	instance: '_Client' = None
