@@ -12,7 +12,7 @@ Requires Python 3.8 or greater
 ## Installation
 
 ```sh
-pip3 install libmidi_io
+pip install libmidi_io
 ```
 
 ## Instructions
